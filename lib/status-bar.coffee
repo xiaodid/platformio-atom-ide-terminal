@@ -174,7 +174,15 @@ class StatusBar extends View
 
     statusIcon = new StatusIcon()
     platformIOTerminalView = new PlatformIOTerminalView(id, pwd, statusIcon, this, shell, args, autoRun)
+
+    iconColors = ['red', 'orange', 'yellow'
+                  'green', 'blue', 'purple'
+                  'pink', 'cyan', 'magenta']
     statusIcon.initialize(platformIOTerminalView)
+
+    if atom.config.get 'platformio-ide-terminal.iconColors.iconWithColor'
+      iconColor = iconColors[@statusContainer.find('.pio-terminal-status-icon').length % iconColors.length]
+      statusIcon.setColor atom.config.get("platformio-ide-terminal.iconColors.#{iconColor}").toRGBAString()
 
     platformIOTerminalView.attach()
 

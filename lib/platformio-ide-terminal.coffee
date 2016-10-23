@@ -226,6 +226,12 @@ module.exports =
       type: 'object'
       order: 5
       properties:
+        iconWithColor:
+          title: 'Icon Has Color By Default'
+          description: 'Icon has Color while creating terminal'
+          type: 'boolean'
+          default: false
+          order: 1
         red:
           title: 'Status Icon Red'
           description: 'Red color used for status icon.'
