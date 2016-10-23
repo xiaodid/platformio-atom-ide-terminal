@@ -175,9 +175,7 @@ class StatusBar extends View
     statusIcon = new StatusIcon()
     platformIOTerminalView = new PlatformIOTerminalView(id, pwd, statusIcon, this, shell, args, autoRun)
 
-    iconColors = ['red', 'orange', 'yellow'
-                  'green', 'blue', 'purple'
-                  'pink', 'cyan', 'magenta']
+    iconColors = (c for c in Object.keys atom.config.get 'platformio-ide-terminal.iconColors' when c isnt 'iconWithColor')
     statusIcon.initialize(platformIOTerminalView)
 
     if atom.config.get 'platformio-ide-terminal.iconColors.iconWithColor'
